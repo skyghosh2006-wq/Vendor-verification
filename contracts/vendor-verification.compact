@@ -1,0 +1,33 @@
+pragma language_version >= 0.23;
+
+import CompactStandardLibrary;
+
+// Public ledger state - visible on blockchain
+export ledger totalVerifiedVendors: Uint<32>;
+export ledger lastVerificationTimestamp: Uint<64>;
+export ledger lastVerifiedCommitment: Bytes<32>;
+export ledger minimumScoreRequirement: Uint<32>;
+
+// Circuit to set/update minimum score requirement
+export circuit setMinimumScore(newScore: Uint<32>): [] {
+    minimumScoreRequirement = disclose(newScore);
+}
+
+// Circuit to verify vendor compliance while keeping raw score & secret tax ID private
+export circuit verifyVendor(
+    vendorSecret: Bytes<32>,
+    complianceScore: Uint<32>,
+    taxIdHash: Bytes<32>,
+    timestamp: Uint<64>
+): [] {
+    // 1. Enforce private compliance score constraint
+    assert(complianceScore >= minimumScoreRequirement, "Vendor compliance score is below required minimum threshold");
+
+    // 2. Compute deterministic ZK commitment hash for vendor (privacy preserving)
+    const commitment = persistentHash<Vector<2, Bytes<32>>>([vendorSecret, taxIdHash]);
+
+    // 3. Update public ledger state cleanly using deliberate disclose()
+    totalVerifiedVendors = disclose((totalVerifiedVendors + 1) as Uint<32>);
+    lastVerificationTimestamp = disclose(timestamp);
+    lastVerifiedCommitment = disclose(commitment);
+}
