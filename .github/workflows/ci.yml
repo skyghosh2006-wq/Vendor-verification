@@ -1,0 +1,46 @@
+name: Private Vendor Verification CI/CD
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+
+      - name: Install Compact Compiler CLI
+        run: |
+          mkdir -p ~/.local/bin
+          curl -sSL https://releases.midnight.network/compact/latest/compact-x86_64-unknown-linux-gnu.tar.gz -o /tmp/compact.tar.gz || true
+          if [ -f /tmp/compact.tar.gz ]; then
+            tar -xzf /tmp/compact.tar.gz -C ~/.local/bin
+            chmod +x ~/.local/bin/compact
+          fi
+          echo "$HOME/.local/bin" >> $GITHUB_PATH
+
+      - name: Install Root Dependencies
+        run: npm ci || npm install
+
+      - name: Install Frontend Dependencies
+        run: npm --prefix frontend ci || npm --prefix frontend install
+
+      - name: Compile Compact Smart Contract
+        run: npm run compile
+
+      - name: Execute Contract & Privacy Unit Tests
+        run: npm test
+
+      - name: Type-check & Build Frontend App
+        run: npm run frontend:build
