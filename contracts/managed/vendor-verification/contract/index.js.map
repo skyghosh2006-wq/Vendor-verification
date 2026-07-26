@@ -1,0 +1,8 @@
+{
+  "version": 3,
+  "file": "index.js",
+  "sourceRoot": "../../../../",
+  "sources": ["contracts/vendor-verification.compact", "compiler/standard-library.compact"],
+  "names": [],
+  "mappings": ";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;EAAA;;;;;;;;;;MAWA,AAAA,eAEC;;;;;cAF8B,UAAkB;;;;;;;;;;;;;;;;;;yCAAlB,UAAkB;;;;;;;;;iDAAlB,UAAkB;;;OAEhD;MAGD,AAAA,YAgBC;;;;;cAfG,cAAuB;cACvB,iBAAyB;cACzB,WAAoB;cACpB,WAAmB;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;yCAHnB,cAAuB,+BACvB,iBAAyB,+BACzB,WAAoB,+BACpB,WAAmB;;;;;;;;;8CAHnB,cAAuB;8CACvB,iBAAyB;8CACzB,WAAoB;8CACpB,WAAmB;;;OAYtB;;;;;;;;;;GACA;EAjCD;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;IAKA;;;;;;;;;yEAA6C;IAC7C;;;;;;;;;yEAAkD;IAClD;;;;;;;;;yEAAgD;IAChD;;;;;;;;;yEAAgD;;;;;;;GAyB/C;ECjCD,AAAA,kBAAA;oEAAA;;;EDWA,AAAA,kBAEC,4BAF8B,UAAkB;IAC7C;;;;;;;2HAAmC,UAAQ;;yEAApB;;GAC1B;EAGD,AAAA,eAgBC;;kBAfG,cAAuB;kBACvB,iBAAyB;kBACzB,WAAoB;kBACpB,WAAmB;;4BAGZ,iBAAe;;oDAAI;;;;;;;;;;;yHAAuB;;UAG3C,YAA4E,2BAAzB,cAAY,EAAE,WAAS;UAGhF,KAAoB;;;;;6CAAa;;;;;;;;;;;kHAAoB;;;IAArD;;;;;;;2HAAA,KAAoB;;yEAAA;IACpB;;;;;;;2HAAqC,WAAS;;yEAArB;IACzB;;;;;;;2HAAkC,YAAU;;yEAAtB;;GACzB;;;;;;;;;;;;;;;;IA3BD;qCAAA;;;;;;;;;;;0GAA6C;KAAA;IAC7C;qCAAA;;;;;;;;;;;0GAAkD;KAAA;IAClD;qCAAA;;;;;;;;;;;0GAAgD;KAAA;IAChD;qCAAA;;;;;;;;;;;0GAAgD;KAAA;;;;;;;;;;"
+}
