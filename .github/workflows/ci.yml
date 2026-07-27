@@ -19,28 +19,25 @@ jobs:
         with:
           node-version: '22'
           cache: 'npm'
-          cache-dependency-path: |
-            package-lock.json
-            frontend/package-lock.json
+          cache-dependency-path: '**/package-lock.json'
 
       - name: Install Compact Compiler CLI
+        continue-on-error: true
         run: |
+          mkdir -p ~/.local/bin ~/.compact/bin
           curl --proto '=https' --tlsv1.2 -LsSf https://github.com/midnightntwrk/compact/releases/latest/download/compact-installer.sh | sh || true
           echo "$HOME/.local/bin" >> $GITHUB_PATH
           echo "$HOME/.compact/bin" >> $GITHUB_PATH
-          export PATH="$HOME/.local/bin:$HOME/.compact/bin:$PATH"
-          if command -v compact >/dev/null 2>&1; then
-            compact update || true
-          fi
 
       - name: Install Root Dependencies
-        run: npm ci || npm install
+        run: npm ci
 
       - name: Install Frontend Dependencies
-        run: npm --prefix frontend ci || npm --prefix frontend install
+        run: npm --prefix frontend ci
 
       - name: Compile Compact Smart Contract
-        run: npm run compile || echo "Notice: Using pre-compiled contract artifacts in contracts/managed"
+        continue-on-error: true
+        run: npm run compile
 
       - name: Execute Contract & Privacy Unit Tests
         run: npm test
