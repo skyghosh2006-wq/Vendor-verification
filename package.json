@@ -11,9 +11,9 @@
   "scripts": {
     "dev": "npm run frontend:dev",
     "compile": "compact compile contracts/vendor-verification.compact contracts/managed/vendor-verification",
-    "build": "npm run frontend:build && node -e \"fs.cpSync('frontend/dist', 'public', {recursive: true}); fs.cpSync('frontend/dist', 'dist', {recursive: true})\"",
+    "build": "npm --prefix frontend install && npm --prefix frontend run build",
     "frontend:dev": "npm --prefix frontend run dev",
-    "frontend:build": "npm --prefix frontend install --include=dev && npm --prefix frontend run build",
+    "frontend:build": "npm --prefix frontend install && npm --prefix frontend run build",
     "setup": "npx tsx src/setup.ts",
     "deploy": "npx tsx src/deploy.ts",
     "cli": "npx tsx src/cli.ts",
