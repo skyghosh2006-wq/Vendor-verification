@@ -8,7 +8,7 @@
   "scripts": {
     "dev": "npm run frontend:dev",
     "compile": "compact compile contracts/vendor-verification.compact contracts/managed/vendor-verification",
-    "build": "npx tsc --noEmit || true",
+    "build": "npm run frontend:build",
     "frontend:dev": "npm --prefix frontend run dev",
     "frontend:build": "npm --prefix frontend run build",
     "setup": "npx tsx src/setup.ts",
