@@ -6,6 +6,7 @@
   "author": "",
   "license": "MIT",
   "scripts": {
+    "dev": "npm run frontend:dev",
     "compile": "compact compile contracts/vendor-verification.compact contracts/managed/vendor-verification",
     "build": "npx tsc --noEmit || true",
     "frontend:dev": "npm --prefix frontend run dev",
