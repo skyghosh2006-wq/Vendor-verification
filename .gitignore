@@ -8,6 +8,7 @@ yarn-error.log*
 dist/
 build/
 public/
+!public/app-preview.png
 
 # Environment variables
 .env
