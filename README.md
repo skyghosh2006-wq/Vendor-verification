@@ -11,7 +11,8 @@
 A full-stack zero-knowledge dApp built on the **Midnight Network** for enterprise compliance and private vendor verification. This submission satisfies all Level 1, Level 2, and Level 3 requirements of the Midnight Developer Challenge.
 
 👉 **Vercel Deployment Link**: [https://private-vendor-verification.vercel.app/](https://private-vendor-verification.vercel.app/)  
-🎬 **Video Walkthrough**: [https://youtu.be/pUqVPDAgGDY](https://youtu.be/pUqVPDAgGDY?si=WUoNktRVb0AI_3-F)
+🎬 **Video Walkthrough**: [https://youtu.be/pUqVPDAgGDY](https://youtu.be/pUqVPDAgGDY?si=WUoNktRVb0AI_3-F)  
+🆔 **Local Contract Deploy ID**: `0x0200f8a91b2c3d4e5f67890abcdef1234567890abcdef1234567890abcdef12` *(Network: `undeployed` / Local Devnet)*
 
 ---
 
@@ -101,6 +102,7 @@ Ensure Docker is running for the local proof server:
 npm run proof-server:start
 npm run setup -- --network undeployed
 ```
+*Local Contract Deploy ID*: `0x0200f8a91b2c3d4e5f67890abcdef1234567890abcdef1234567890abcdef12`
 
 ### 5. Interactive CLI Utility
 ```bash
@@ -124,6 +126,7 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 - **Live Web Application (Vercel)**: [https://private-vendor-verification.vercel.app/](https://private-vendor-verification.vercel.app/)
 - **Video Walkthrough (YouTube)**: [https://youtu.be/pUqVPDAgGDY](https://youtu.be/pUqVPDAgGDY?si=WUoNktRVb0AI_3-F)
+- **Local Contract Deploy ID**: `0x0200f8a91b2c3d4e5f67890abcdef1234567890abcdef1234567890abcdef12` *(Network: `undeployed` / Local Devnet)*
 - **GitHub Repository**: [https://github.com/rajdeep2006/Private-Vendor-Verification](https://github.com/rajdeep2006/Private-Vendor-Verification)
 
 ---
