@@ -16,8 +16,8 @@ public/
 .env.test.local
 .env.production.local
 
-# Contract artifacts
-contracts/managed/
+# Contract artifacts (only ignore hello-world sample)
+contracts/managed/hello-world/
 
 # Deployment info
 deployment.json

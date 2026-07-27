@@ -30,10 +30,10 @@ jobs:
           echo "$HOME/.compact/bin" >> $GITHUB_PATH
 
       - name: Install Root Dependencies
-        run: npm ci
+        run: npm install
 
       - name: Install Frontend Dependencies
-        run: npm --prefix frontend ci
+        run: npm --prefix frontend install
 
       - name: Compile Compact Smart Contract
         continue-on-error: true
