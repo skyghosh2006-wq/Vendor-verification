@@ -118,6 +118,13 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 ---
 
+## 🔗 Project Links & Live Deployment
+
+- **Live Web Application (Vercel)**: [https://private-vendor-verification.vercel.app/](https://private-vendor-verification.vercel.app/)
+- **GitHub Repository**: [https://github.com/rajdeep2006/Private-Vendor-Verification](https://github.com/rajdeep2006/Private-Vendor-Verification)
+
+---
+
 ## 🌐 Preview / Preprod Deployment Handling
 
 To attempt deployment to the Preprod testnet:
