@@ -9,7 +9,7 @@
 
 A full-stack zero-knowledge dApp built on the **Midnight Network** for enterprise compliance and private vendor verification. This submission satisfies all Level 1, Level 2, and Level 3 requirements of the Midnight Developer Challenge.
 
-👉 **Live Application**: [https://private-vendor-verification.vercel.app/](https://private-vendor-verification.vercel.app/)
+👉 **Vercel Deployment Link**: [https://private-vendor-verification.vercel.app/](https://private-vendor-verification.vercel.app/)
 
 ---
 
