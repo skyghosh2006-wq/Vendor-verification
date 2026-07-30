@@ -2,7 +2,7 @@
 
 [![Midnight Network](https://img.shields.io/badge/Midnight-ZK_Protocol-00F0FF?style=for-the-badge)](https://midnight.network)
 [![Level 3 Submission](https://img.shields.io/badge/Level_3-Confidential_Credentials-00FF9D?style=for-the-badge)](#submission-checklists)
-[![Vercel Deployment](https://img.shields.io/badge/Vercel-Live_Demo-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://private-vendor-verification.vercel.app/)
+[![Vercel Deployment](https://img.shields.io/badge/Vercel-Live_Demo-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://private-vendor-verification-fronten.vercel.app/)
 [![YouTube Demo](https://img.shields.io/badge/YouTube-Video_Demo-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://youtu.be/pUqVPDAgGDY?si=WUoNktRVb0AI_3-F)
 [![Build Status](https://img.shields.io/badge/CI-Passing-00F0FF?style=for-the-badge)](#cicd-pipeline)
 
@@ -10,7 +10,7 @@
 
 A full-stack zero-knowledge dApp built on the **Midnight Network** for enterprise compliance and private vendor verification. This submission satisfies all Level 1, Level 2, and Level 3 requirements of the Midnight Developer Challenge.
 
-👉 **Vercel Deployment Link**: [https://private-vendor-verification.vercel.app/](https://private-vendor-verification.vercel.app/)  
+👉 **Vercel Deployment Link**: [https://private-vendor-verification-fronten.vercel.app/](https://private-vendor-verification-fronten.vercel.app/)  
 🎬 **Video Walkthrough**: [https://youtu.be/pUqVPDAgGDY](https://youtu.be/pUqVPDAgGDY?si=WUoNktRVb0AI_3-F)  
 🆔 **Preprod Contract Address**: `0x0200f8a91b2c3d4e5f67890abcdef1234567890abcdef1234567890abcdef12` *(Network: `preprod` / Midnight Preprod Testnet)*
 
@@ -125,7 +125,7 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 ## 🔗 Project Links & Live Deployment
 
-- **Live Web Application (Vercel)**: [https://private-vendor-verification.vercel.app/](https://private-vendor-verification.vercel.app/)
+- **Live Web Application (Vercel)**: [https://private-vendor-verification-fronten.vercel.app/](https://private-vendor-verification-fronten.vercel.app/)
 - **Video Walkthrough (YouTube)**: [https://youtu.be/pUqVPDAgGDY](https://youtu.be/pUqVPDAgGDY?si=WUoNktRVb0AI_3-F)
 - **Preprod Contract Address**: `0x0200f8a91b2c3d4e5f67890abcdef1234567890abcdef1234567890abcdef12` *(Network: `preprod` / Midnight Preprod Testnet)*
 - **GitHub Repository**: [https://github.com/skyghosh2006-wq/Private-Vendor-Verification](https://github.com/skyghosh2006-wq/Private-Vendor-Verification)
