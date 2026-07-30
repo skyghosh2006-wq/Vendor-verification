@@ -9,6 +9,8 @@ dist/
 build/
 public/
 !public/app-preview.png
+!public/navbar-preview.png
+!public/ci-checks-passed.png
 
 # Environment variables
 .env

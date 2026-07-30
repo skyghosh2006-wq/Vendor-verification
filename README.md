@@ -155,6 +155,8 @@ Continuous Integration is configured via `.github/workflows/ci.yml`. On every `p
 4. Runs unit test suite (`npm test`)
 5. Type-checks and builds the Vite production frontend bundle (`npm run frontend:build`)
 
+![Automated CI/CD and Vercel Deployment Checks Passed](public/ci-checks-passed.png)
+
 ---
 
 ## 📋 Submission Checklists
