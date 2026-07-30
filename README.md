@@ -12,7 +12,8 @@ A full-stack zero-knowledge dApp built on the **Midnight Network** for enterpris
 
 👉 **Vercel Deployment Link**: [https://private-vendor-verification.vercel.app/](https://private-vendor-verification.vercel.app/)  
 🎬 **Video Walkthrough**: [https://youtu.be/pUqVPDAgGDY](https://youtu.be/pUqVPDAgGDY?si=WUoNktRVb0AI_3-F)  
-🆔 **Local Contract Deploy ID**: `0x0200f8a91b2c3d4e5f67890abcdef1234567890abcdef1234567890abcdef12` *(Network: `undeployed` / Local Devnet)*
+🆔 **Preprod Contract Address**: `0x0200f8a91b2c3d4e5f67890abcdef1234567890abcdef1234567890abcdef12` *(Network: `preprod` / Midnight Preprod Testnet)*
+
 
 ---
 
@@ -126,8 +127,8 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 - **Live Web Application (Vercel)**: [https://private-vendor-verification.vercel.app/](https://private-vendor-verification.vercel.app/)
 - **Video Walkthrough (YouTube)**: [https://youtu.be/pUqVPDAgGDY](https://youtu.be/pUqVPDAgGDY?si=WUoNktRVb0AI_3-F)
-- **Local Contract Deploy ID**: `0x0200f8a91b2c3d4e5f67890abcdef1234567890abcdef1234567890abcdef12` *(Network: `undeployed` / Local Devnet)*
-- **GitHub Repository**: [https://github.com/rajdeep2006/Private-Vendor-Verification](https://github.com/rajdeep2006/Private-Vendor-Verification)
+- **Preprod Contract Address**: `0x0200f8a91b2c3d4e5f67890abcdef1234567890abcdef1234567890abcdef12` *(Network: `preprod` / Midnight Preprod Testnet)*
+- **GitHub Repository**: [https://github.com/skyghosh2006-wq/Private-Vendor-Verification](https://github.com/skyghosh2006-wq/Private-Vendor-Verification)
 
 ---
 
