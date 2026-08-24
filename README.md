@@ -17,7 +17,7 @@ A full-stack zero-knowledge dApp built on the **Midnight Network** for enterpris
 
 👉 **Vercel Deployment Link**:https://vendor-verification-frontend-seven.vercel.app/
 
-🎬 **Video Walkthrough**: [https://youtu.be/9_tS69z-GEM](https://youtu.be/9_tS69z-GEM?si=2DitQYsSC1SnvYvj)  
+🎬 **Video Walkthrough**: https://youtu.be/xXcw1aMI6ew
 
 🆔 **Preprod Contract Address**: `0x0200f8a91b2c3d4e5f67890abcdef1234567890abcdef1234567890abcdef12` *(Network: `preprod` / Midnight Preprod Testnet)*
 
