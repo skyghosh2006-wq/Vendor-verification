@@ -1,6 +1,6 @@
 # Private Vendor Verification (Midnight dApp)
 
-[![Midnight Network]![Uploading image.png…]()
+[![Midnight Network]
 
 [![Level 3 Submission](https://img.shields.io/badge/Level_3-Confidential_Credentials-00FF9D?style=for-the-badge)](#submission-checklists)
 [![Vercel Deployment](https://img.shields.io/badge/Vercel-Live_Demo-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://private-vendor-verification-fronten.vercel.app/)
