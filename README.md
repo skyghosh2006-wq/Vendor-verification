@@ -8,6 +8,7 @@
 
 [Private Vendor Verification Interface]<img width="2878" height="1562" alt="image" src="https://github.com/user-attachments/assets/2d8f8cbe-ca61-444e-b1bb-e956c1b090af" />
 [Prepod Wallet Connected]<img width="2105" height="341" alt="image" src="https://github.com/user-attachments/assets/42b5300d-9d85-4190-8d92-6ff61d20f73e" />
+<img width="2070" height="1461" alt="image" src="https://github.com/user-attachments/assets/a05bd368-409b-44de-8a5f-c59fe9fa21af" />
 
 
 
