@@ -1,13 +1,13 @@
 # Private Vendor Verification (Midnight dApp)
 
-[![Midnight Network]
-
+[![Midnight Network](https://img.shields.io/badge/Midnight-ZK_Protocol-00F0FF?style=for-the-badge)](https://midnight.network)
 [![Level 3 Submission](https://img.shields.io/badge/Level_3-Confidential_Credentials-00FF9D?style=for-the-badge)](#submission-checklists)
 [![Vercel Deployment](https://img.shields.io/badge/Vercel-Live_Demo-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://private-vendor-verification-fronten.vercel.app/)
 [![YouTube Demo](https://img.shields.io/badge/YouTube-Video_Demo-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://youtu.be/9_tS69z-GEM?si=2DitQYsSC1SnvYvj)
 [![Build Status](https://img.shields.io/badge/CI-Passing-00F0FF?style=for-the-badge)](#cicd-pipeline)
 
-![Private Vendor Verification Interface](public/app-preview.png)
+![Private Vendor Verification Interface]![Uploading image.png…]()
+
 
 A full-stack zero-knowledge dApp built on the **Midnight Network** for enterprise compliance and private vendor verification. This submission satisfies all Level 1, Level 2, and Level 3 requirements of the Midnight Developer Challenge.
 
