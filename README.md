@@ -6,8 +6,8 @@
 [![YouTube Demo](https://img.shields.io/badge/YouTube-Video_Demo-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://youtu.be/9_tS69z-GEM?si=2DitQYsSC1SnvYvj)
 [![Build Status](https://img.shields.io/badge/CI-Passing-00F0FF?style=for-the-badge)](#cicd-pipeline)
 
-[![Private Vendor Verification Interface]<img width="2878" height="1562" alt="image" src="https://github.com/user-attachments/assets/2d8f8cbe-ca61-444e-b1bb-e956c1b090af" />
-[![Prepod Wallet Connected]<img width="2105" height="341" alt="image" src="https://github.com/user-attachments/assets/42b5300d-9d85-4190-8d92-6ff61d20f73e" />
+[Private Vendor Verification Interface]<img width="2878" height="1562" alt="image" src="https://github.com/user-attachments/assets/2d8f8cbe-ca61-444e-b1bb-e956c1b090af" />
+[Prepod Wallet Connected]<img width="2105" height="341" alt="image" src="https://github.com/user-attachments/assets/42b5300d-9d85-4190-8d92-6ff61d20f73e" />
 
 
 
