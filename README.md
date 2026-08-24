@@ -133,7 +133,7 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 ## 🔗 Project Links & Live Deployment
 
 - **Live Web Application (Vercel)**:https://vendor-verification-frontend-seven.vercel.app/
-- **Video Walkthrough (YouTube)**: [https://youtu.be/9_tS69z-GEM](https://youtu.be/9_tS69z-GEM?si=2DitQYsSC1SnvYvj)
+- **Video Walkthrough (YouTube)**:https://youtu.be/xXcw1aMI6ew
 - **Preprod Contract Address**: `0x0200f8a91b2c3d4e5f67890abcdef1234567890abcdef1234567890abcdef12` *(Network: `preprod` / Midnight Preprod Testnet)*
 
 
