@@ -1,4 +1,7 @@
+'use client';
+
 import React, { useState } from 'react';
+import dynamic from 'next/dynamic';
 import { Navbar } from './components/Navbar';
 import { VerificationForm } from './components/VerificationForm';
 import { LedgerDashboard } from './components/LedgerDashboard';
@@ -6,10 +9,12 @@ import { PrivacyModelModal } from './components/PrivacyModelModal';
 import { executeVerifyVendorCircuit, executeSetMinimumScoreCircuit } from './components/circuitApi';
 import { CheckCircle2, AlertCircle, Info, Sparkles } from 'lucide-react';
 
+const MagicRings = dynamic(() => import('./components/MagicRings'), { ssr: false });
+
 export const App: React.FC = () => {
   // Environment variables with fallback configurations (Preprod Testnet default)
-  const network = import.meta.env.VITE_NETWORK || 'preprod';
-  const envContractAddress = import.meta.env.VITE_CONTRACT_ADDRESS || '0x0200f8a91b2c3d4e5f67890abcdef1234567890abcdef1234567890abcdef12';
+  const network = process.env.NEXT_PUBLIC_NETWORK || (typeof import.meta !== 'undefined' && (import.meta as any).env?.VITE_NETWORK) || 'preprod';
+  const envContractAddress = process.env.NEXT_PUBLIC_CONTRACT_ADDRESS || (typeof import.meta !== 'undefined' && (import.meta as any).env?.VITE_CONTRACT_ADDRESS) || '0x0200f8a91b2c3d4e5f67890abcdef1234567890abcdef1234567890abcdef12';
   
   // Lace Wallet Connection State
   const [walletConnected, setWalletConnected] = useState<boolean>(false);
@@ -20,7 +25,7 @@ export const App: React.FC = () => {
   const [contractAddress, setContractAddress] = useState<string | null>(envContractAddress);
   const [totalVerifiedVendors, setTotalVerifiedVendors] = useState<number>(3);
   const [minimumRequiredScore, setMinimumRequiredScore] = useState<number>(70);
-  const [lastVerificationTimestamp, setLastVerificationTimestamp] = useState<number | null>(Math.floor(Date.now() / 1000) - 3600);
+  const [lastVerificationTimestamp, setLastVerificationTimestamp] = useState<number | null>(1787140000);
   const [lastVerifiedCommitment, setLastVerifiedCommitment] = useState<string>(
     '0xa7b9c1d2e3f405162738495a6b7c8d9e0f1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c'
   );
@@ -34,7 +39,8 @@ export const App: React.FC = () => {
   // Lace Wallet Connect Handler (UI Layer)
   const handleConnectWallet = async () => {
     // Check if Lace Midnight wallet extension is present on window
-    const windowLace = window.midnight?.lace || (window as any).cardano?.lace;
+    const windowObj = typeof window !== 'undefined' ? (window as any) : {};
+    const windowLace = windowObj.midnight?.lace || windowObj.cardano?.lace;
     if (windowLace) {
       try {
         const api = await windowLace.enable();
@@ -119,7 +125,27 @@ export const App: React.FC = () => {
   };
 
   return (
-    <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
+    <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', position: 'relative' }}>
+      
+      {/* Interactive Shader Background */}
+      <MagicRings
+        color="#00f0ff"
+        colorTwo="#9d4edd"
+        speed={0.8}
+        ringCount={6}
+        attenuation={10}
+        lineThickness={2.2}
+        baseRadius={0.3}
+        radiusStep={0.12}
+        scaleRate={0.1}
+        opacity={0.65}
+        noiseAmount={0.08}
+        ringGap={1.5}
+        followMouse={true}
+        mouseInfluence={0.25}
+        parallax={0.06}
+        clickBurst={false}
+      />
       
       {/* Top Navigation */}
       <Navbar

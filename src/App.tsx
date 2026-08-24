@@ -3,6 +3,7 @@ import { Navbar } from './components/Navbar';
 import { VerificationForm } from './components/VerificationForm';
 import { LedgerDashboard } from './components/LedgerDashboard';
 import { PrivacyModelModal } from './components/PrivacyModelModal';
+import MagicRings from './components/MagicRings';
 import { executeVerifyVendorCircuit, executeSetMinimumScoreCircuit } from './components/circuitApi';
 import { CheckCircle2, AlertCircle, Info, Sparkles } from 'lucide-react';
 
@@ -119,7 +120,27 @@ export const App: React.FC = () => {
   };
 
   return (
-    <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
+    <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', position: 'relative' }}>
+      
+      {/* Interactive Shader Background */}
+      <MagicRings
+        color="#00f0ff"
+        colorTwo="#9d4edd"
+        speed={0.8}
+        ringCount={6}
+        attenuation={10}
+        lineThickness={2.2}
+        baseRadius={0.3}
+        radiusStep={0.12}
+        scaleRate={0.1}
+        opacity={0.65}
+        noiseAmount={0.08}
+        ringGap={1.5}
+        followMouse={true}
+        mouseInfluence={0.25}
+        parallax={0.06}
+        clickBurst={false}
+      />
       
       {/* Top Navigation */}
       <Navbar

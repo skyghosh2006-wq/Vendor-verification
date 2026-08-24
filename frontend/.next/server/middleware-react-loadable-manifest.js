@@ -1,0 +1,1 @@
+self.__REACT_LOADABLE_MANIFEST="{\"App.tsx -> ./components/MagicRings\":{\"id\":\"App.tsx -> ./components/MagicRings\",\"files\":[\"static/css/_app-pages-browser_src_components_MagicRings_tsx.css\",\"static/chunks/_app-pages-browser_src_components_MagicRings_tsx.js\"]}}"

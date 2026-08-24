@@ -1,3 +1,5 @@
+'use client';
+
 import React from 'react';
 import { ShieldCheck, Wallet, LogOut, Cpu, Network, Info } from 'lucide-react';
 

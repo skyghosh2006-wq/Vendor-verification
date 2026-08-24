@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useState } from 'react';
 import { Database, Shield, Clock, Hash, Sliders, CheckCircle, RefreshCw, Copy, Check } from 'lucide-react';
 
@@ -38,6 +40,12 @@ export const LedgerDashboard: React.FC<LedgerDashboardProps> = ({
     e.preventDefault();
     onUpdateMinimumScore(newScoreInput);
   };
+
+  const [mounted, setMounted] = React.useState<boolean>(false);
+
+  React.useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const formattedDate = lastVerificationTimestamp && lastVerificationTimestamp > 0
     ? new Date(lastVerificationTimestamp * 1000).toLocaleString()
@@ -101,8 +109,8 @@ export const LedgerDashboard: React.FC<LedgerDashboardProps> = ({
             <span style={{ fontSize: '0.8rem', fontWeight: 600, color: 'var(--text-secondary)' }}>Last Verified</span>
             <Clock size={20} color="var(--accent-purple)" />
           </div>
-          <div style={{ fontSize: '0.95rem', fontWeight: 700, color: 'var(--text-primary)', marginTop: '6px' }}>
-            {formattedDate}
+          <div suppressHydrationWarning style={{ fontSize: '0.95rem', fontWeight: 700, color: 'var(--text-primary)', marginTop: '6px' }}>
+            {mounted ? formattedDate : '...'}
           </div>
           <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)', marginTop: '8px', display: 'block' }}>
             Disclosed Unix timestamp

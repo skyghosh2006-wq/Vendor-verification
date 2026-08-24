@@ -1,3 +1,5 @@
+'use client';
+
 import React from 'react';
 import { X, ShieldCheck, Eye, EyeOff, Lock, Code2 } from 'lucide-react';
 
