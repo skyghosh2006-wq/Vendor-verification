@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { X, Wallet, ShieldCheck, Cpu, ArrowRight, ExternalLink, CheckCircle2, AlertCircle, RefreshCw } from 'lucide-react';
+import { X, Wallet, ShieldCheck, Cpu, ArrowRight, ExternalLink, CheckCircle2, AlertCircle, RefreshCw, Info } from 'lucide-react';
 
 export interface WalletItem {
   id: string;
@@ -120,7 +120,7 @@ export const WalletSelectModal: React.FC<WalletSelectModalProps> = ({
                   href="https://chromewebstore.google.com/detail/1am-wallet/bphnkdkcnfhompoegfpgnkidcjfbojjp"
                   target="_blank"
                   rel="noopener noreferrer"
-                  style={{ fontSize: '0.75rem', color: 'var(--accent-cyan)', display: 'flex', alignItems: 'center', gap: '4px', textDecoration: 'none' }}
+                  style={{ color: 'var(--accent-cyan)', fontSize: '0.75rem', display: 'flex', alignItems: 'center', gap: '4px' }}
                 >
                   <span>Install 1AM Extension</span>
                   <ExternalLink size={11} />
@@ -130,11 +130,11 @@ export const WalletSelectModal: React.FC<WalletSelectModalProps> = ({
           </div>
         )}
 
-        {/* Wallet Selection Options */}
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
+        {/* Wallets List */}
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
           
-          {/* Option 1: 1AM Wallet */}
-          <div 
+          {/* 1AM Wallet Option */}
+          <div
             onClick={() => {
               onSelectWallet(oneAMWallet || '1am');
               onClose();
@@ -146,36 +146,34 @@ export const WalletSelectModal: React.FC<WalletSelectModalProps> = ({
               alignItems: 'center',
               justifyContent: 'space-between',
               cursor: 'pointer',
-              borderColor: oneAMWallet ? 'var(--accent-purple)' : 'var(--border-glass)',
-              background: oneAMWallet ? 'rgba(157, 78, 221, 0.15)' : 'rgba(15, 23, 42, 0.6)'
+              borderColor: oneAMWallet ? 'var(--accent-emerald)' : 'var(--accent-cyan)',
+              background: oneAMWallet ? 'rgba(0, 255, 157, 0.12)' : 'rgba(0, 240, 255, 0.08)'
             }}
           >
             <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
-              <div style={{ width: '42px', height: '42px', borderRadius: '10px', background: 'rgba(157, 78, 221, 0.2)', border: '1px solid #9d4edd', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                <Cpu size={22} color="#9d4edd" />
+              <div style={{ width: '42px', height: '42px', borderRadius: '10px', background: 'rgba(0, 255, 157, 0.2)', border: '1px solid #00ff9d', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                <Cpu size={22} color="#00ff9d" />
               </div>
               <div>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
                   <strong style={{ fontSize: '1.02rem', display: 'block' }}>1AM Wallet</strong>
-                  {oneAMWallet ? (
-                    <span className="badge badge-purple" style={{ fontSize: '0.7rem', display: 'flex', alignItems: 'center', gap: '4px' }}>
-                      <CheckCircle2 size={12} />
-                      <span>Detected</span>
-                    </span>
-                  ) : null}
+                  <span className="badge badge-emerald" style={{ fontSize: '0.7rem', display: 'flex', alignItems: 'center', gap: '4px' }}>
+                    <CheckCircle2 size={12} />
+                    <span>{oneAMWallet ? 'Detected & Ready' : 'Recommended'}</span>
+                  </span>
                 </div>
                 <span style={{ fontSize: '0.8rem', color: 'var(--text-secondary)' }}>
-                  {oneAMWallet ? 'Official 1AM Midnight DApp Connector' : 'Midnight 1AM Browser Extension'}
+                  Official Midnight Network Browser Extension
                 </span>
               </div>
             </div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-              <ArrowRight size={18} color="var(--accent-purple)" />
+              <ArrowRight size={18} color="var(--accent-emerald)" />
             </div>
           </div>
 
-          {/* Option 2: Lace Wallet */}
-          <div 
+          {/* Lace Wallet Option */}
+          <div
             onClick={() => {
               onSelectWallet(laceWallet || 'lace');
               onClose();
@@ -246,10 +244,24 @@ export const WalletSelectModal: React.FC<WalletSelectModalProps> = ({
 
         </div>
 
+        {/* Helpful Popup & Whitelist Guidance */}
+        <div style={{
+          marginTop: '16px',
+          padding: '12px 14px',
+          background: 'rgba(0, 240, 255, 0.05)',
+          border: '1px solid rgba(0, 240, 255, 0.15)',
+          borderRadius: 'var(--radius-sm)',
+          fontSize: '0.78rem',
+          color: 'var(--text-secondary)',
+          lineHeight: '1.4'
+        }}>
+          <strong style={{ color: 'var(--accent-cyan)' }}>💡 Extension Popup Notice:</strong> When unlocked, 1AM connects smoothly using your saved permissions. If 1AM is locked, enter your password in the extension window to finish connecting.
+        </div>
+
         {/* Network & Faucet Guidance Footer */}
         <div style={{
-          marginTop: '20px',
-          paddingTop: '16px',
+          marginTop: '16px',
+          paddingTop: '14px',
           borderTop: '1px solid var(--border-glass)',
           display: 'flex',
           justifyContent: 'space-between',
