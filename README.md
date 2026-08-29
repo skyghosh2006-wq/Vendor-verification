@@ -141,8 +141,8 @@ Open [http://localhost:3000](http://localhost:3000) in your browser. Connect Lac
 ## 🔗 Project Links & Live Deployment
 
 - **Live Web Application (Vercel)**: [https://vendor-verification-frontend-seven.vercel.app/](https://vendor-verification-frontend-seven.vercel.app/)
-- **Video Walkthrough (YouTube)**: [https://youtu.be/xXcw1aMI6ew](https://youtu.be/xXcw1aMI6ew)
-- **Preprod Contract Address**: [`0xed3c0b8bbdc6e2405d1b606dfe38ef7d895ad95c9d7ecd69b68b4c2a0fa5e68b`](https://preprod.midnightexplorer.com/contracts/ed3c0b8bbdc6e2405d1b606dfe38ef7d895ad95c9d7ecd69b68b4c2a0fa5e68b) *(Network: `preprod` / Midnight Preprod Testnet)*
+- **Video Walkthrough (YouTube)**: https://youtu.be/9_f9l9Cdk5k 
+- **Preprod Contract Address**:  0xed3c0b8bbdc6e2405d1b606dfe38ef7d895ad95c9d7ecd69b68b4c2a0fa5e68b
 - **Midnight Preprod Explorer**: [https://preprod.midnightexplorer.com](https://preprod.midnightexplorer.com)
 - **GitHub Repository**: [https://github.com/skyghosh2006-wq/Vendor-verification](https://github.com/skyghosh2006-wq/Vendor-verification)
 
