@@ -7,8 +7,12 @@
 [![Build Status](https://img.shields.io/badge/CI-Passing-00F0FF?style=for-the-badge)](#cicd-pipeline)
 
 [Private Vendor Verification Interface]<img width="2878" height="1562" alt="image" src="https://github.com/user-attachments/assets/2d8f8cbe-ca61-444e-b1bb-e956c1b090af" />
-[Prepod Wallet Connected]<img width="2105" height="341" alt="image" src="https://github.com/user-attachments/assets/42b5300d-9d85-4190-8d92-6ff61d20f73e" />
+[Prepod Wallet Connected]<img width="2873" height="1566" alt="image" src="https://github.com/user-attachments/assets/763d1baf-90c4-46fa-b5e2-dc57e7402372" />
+
 <img width="2070" height="1461" alt="image" src="https://github.com/user-attachments/assets/a05bd368-409b-44de-8a5f-c59fe9fa21af" />
+<img width="2873" height="1548" alt="image" src="https://github.com/user-attachments/assets/841456ff-a0cb-40be-8740-3a7383def43b" />
+<img width="2863" height="1545" alt="image" src="https://github.com/user-attachments/assets/57871d08-f391-4920-b684-ede44145b4b2" />
+
 
 
 
@@ -16,9 +20,10 @@
 A full-stack zero-knowledge dApp built on the **Midnight Network** for enterprise compliance and private vendor verification. This submission satisfies all Level 1, Level 2, and Level 3 requirements of the Midnight Developer Challenge.
 
 👉 **Vercel Deployment Link**: [https://vendor-verification-frontend-seven.vercel.app/](https://vendor-verification-frontend-seven.vercel.app/)  
-🎬 **Video Walkthrough**: [https://youtu.be/xXcw1aMI6ew](https://youtu.be/xXcw1aMI6ew)  
-🆔 **Preprod Contract Address**: [`0xed3c0b8bbdc6e2405d1b606dfe38ef7d895ad95c9d7ecd69b68b4c2a0fa5e68b`](https://preprod.midnightexplorer.com/contracts/ed3c0b8bbdc6e2405d1b606dfe38ef7d895ad95c9d7ecd69b68b4c2a0fa5e68b) *(Network: `preprod` / Midnight Preprod Testnet)*  
-🌐 **Midnight Preprod Explorer**: [https://preprod.midnightexplorer.com](https://preprod.midnightexplorer.com)
+🎬 **Video Walkthrough**: https://youtu.be/9_f9l9Cdk5k 
+🆔 **Preprod Contract Address**: 0xed3c0b8bbdc6e2405d1b606dfe38ef7d895ad95c9d7ecd69b68b4c2a0fa5e68b
+    **Deployment Tx**:0xb13f0d232605c0bc819c973a14a152ffaf47a8845dba8f26f4fb845ad38bc0b4
+🌐 **Midnight Preprod Explorer**: https://preprod.midnightexplorer.com/contracts/ed3c0b8bbdc6e2405d1b606dfe38ef7d895ad95c9d7ecd69b68b4c2a0fa5e68b
 
 
 ---
