@@ -17,8 +17,8 @@ A full-stack zero-knowledge dApp built on the **Midnight Network** for enterpris
 
 👉 **Vercel Deployment Link**: [https://vendor-verification-frontend-seven.vercel.app/](https://vendor-verification-frontend-seven.vercel.app/)  
 🎬 **Video Walkthrough**: [https://youtu.be/xXcw1aMI6ew](https://youtu.be/xXcw1aMI6ew)  
-🆔 **Preprod Contract Address**: `0x0200f8a91b2c3d4e5f67890abcdef1234567890abcdef1234567890abcdef12` *(Network: `preprod` / Midnight Preprod Testnet)*  
-🌐 **Midnight Preprod Explorer**: [https://explorer.preprod.midnight.network](https://explorer.preprod.midnight.network)
+🆔 **Preprod Contract Address**: [`0xed3c0b8bbdc6e2405d1b606dfe38ef7d895ad95c9d7ecd69b68b4c2a0fa5e68b`](https://preprod.midnightexplorer.com/contracts/ed3c0b8bbdc6e2405d1b606dfe38ef7d895ad95c9d7ecd69b68b4c2a0fa5e68b) *(Network: `preprod` / Midnight Preprod Testnet)*  
+🌐 **Midnight Preprod Explorer**: [https://preprod.midnightexplorer.com](https://preprod.midnightexplorer.com)
 
 
 ---
@@ -132,17 +132,11 @@ Open [http://localhost:3000](http://localhost:3000) in your browser. Connect Lac
 
 ## 🔗 Project Links & Live Deployment
 
-<<<<<<< HEAD
-- **Live Web Application (Vercel)**:https://vendor-verification-frontend-seven.vercel.app/
-- **Video Walkthrough (YouTube)**:https://youtu.be/xXcw1aMI6ew
-- **Preprod Contract Address**: `0x0200f8a91b2c3d4e5f67890abcdef1234567890abcdef1234567890abcdef12` *(Network: `preprod` / Midnight Preprod Testnet)*
-
-=======
-- **Live Web Application (Vercel)**: [https://private-vendor-verification-fronten.vercel.app/](https://private-vendor-verification-fronten.vercel.app/)
-- **Video Walkthrough (YouTube)**: [https://youtu.be/9_tS69z-GEM](https://youtu.be/9_tS69z-GEM?si=2DitQYsSC1SnvYvj)
-- **Midnight Preprod Explorer**: [https://explorer.preprod.midnight.network](https://explorer.preprod.midnight.network)
-- **GitHub Repository**: [https://github.com/skyghosh2006-wq/Private-Vendor-Verification](https://github.com/skyghosh2006-wq/Private-Vendor-Verification)
->>>>>>> e839b81 (feat: integrate official Midnight 1AM DApp connector, remove mock fallbacks, live indexer sync, and strict CI compilation checks)
+- **Live Web Application (Vercel)**: [https://vendor-verification-frontend-seven.vercel.app/](https://vendor-verification-frontend-seven.vercel.app/)
+- **Video Walkthrough (YouTube)**: [https://youtu.be/xXcw1aMI6ew](https://youtu.be/xXcw1aMI6ew)
+- **Preprod Contract Address**: [`0xed3c0b8bbdc6e2405d1b606dfe38ef7d895ad95c9d7ecd69b68b4c2a0fa5e68b`](https://preprod.midnightexplorer.com/contracts/ed3c0b8bbdc6e2405d1b606dfe38ef7d895ad95c9d7ecd69b68b4c2a0fa5e68b) *(Network: `preprod` / Midnight Preprod Testnet)*
+- **Midnight Preprod Explorer**: [https://preprod.midnightexplorer.com](https://preprod.midnightexplorer.com)
+- **GitHub Repository**: [https://github.com/skyghosh2006-wq/Vendor-verification](https://github.com/skyghosh2006-wq/Vendor-verification)
 
 ---
 

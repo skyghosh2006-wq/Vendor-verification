@@ -1,6 +1,8 @@
+'use client';
+
 import React from 'react';
-import { ShieldCheck, Wallet, LogOut, Network, Info, ExternalLink, FileCode } from 'lucide-react';
-import { DEFAULT_PREPROD_EXPLORER } from './circuitApi';
+import { ShieldCheck, Wallet, LogOut, Network, Info, ExternalLink, FileCode, Compass } from 'lucide-react';
+import { DEFAULT_PREPROD_EXPLORER, getExplorerAddressUrl, getExplorerContractUrl } from './circuitApi';
 
 interface NavbarProps {
   walletConnected: boolean;
@@ -59,6 +61,7 @@ export const Navbar: React.FC<NavbarProps> = ({
         {/* Action Controls & Wallet Status */}
         <div style={{ display: 'flex', alignItems: 'center', gap: '12px', flexWrap: 'wrap' }}>
           
+          {/* Privacy Model Modal Trigger */}
           <button 
             onClick={onOpenPrivacyInfo} 
             className="btn-secondary"
@@ -69,9 +72,24 @@ export const Navbar: React.FC<NavbarProps> = ({
             <span>Privacy Model</span>
           </button>
 
+          {/* Direct Midnight Preprod Explorer Link */}
+          <a
+            href={DEFAULT_PREPROD_EXPLORER}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-secondary"
+            style={{ fontSize: '0.85rem', display: 'flex', alignItems: 'center', gap: '6px' }}
+            title="Open Midnight Preprod Explorer"
+          >
+            <Compass size={15} color="var(--accent-cyan)" />
+            <span>Explorer</span>
+            <ExternalLink size={11} />
+          </a>
+
+          {/* Contract Address Indicator */}
           {contractAddress && (
             <a
-              href={`${DEFAULT_PREPROD_EXPLORER}/contract/${contractAddress}`}
+              href={getExplorerContractUrl(contractAddress)}
               target="_blank"
               rel="noopener noreferrer"
               className="badge badge-purple"
@@ -79,20 +97,22 @@ export const Navbar: React.FC<NavbarProps> = ({
               title={`View Contract on Midnight Explorer: ${contractAddress}`}
             >
               <FileCode size={13} />
-              <span>Contract: {contractAddress.slice(0, 6)}...{contractAddress.slice(-4)}</span>
+              <span>Contract: {contractAddress.replace(/^0x/, '').slice(0, 6)}...{contractAddress.slice(-4)}</span>
               <ExternalLink size={11} />
             </a>
           )}
 
+          {/* Network Badge */}
           <div className="badge badge-cyan" style={{ display: 'flex', alignItems: 'center', gap: '6px', padding: '6px 12px' }}>
             <Network size={14} />
             <span>Network: <strong>{network.toUpperCase()}</strong></span>
           </div>
 
+          {/* Connected Wallet Account */}
           {walletConnected && walletAddress ? (
             <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
               <a
-                href={`${DEFAULT_PREPROD_EXPLORER}/address/${walletAddress}`}
+                href={getExplorerAddressUrl(walletAddress)}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="glass-panel"

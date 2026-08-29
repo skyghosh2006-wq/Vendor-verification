@@ -1,8 +1,8 @@
 'use client';
 
 import React, { useState } from 'react';
-import { Database, Shield, Clock, Hash, Sliders, RefreshCw, Copy, Check, ExternalLink, FileCode } from 'lucide-react';
-import { DEFAULT_PREPROD_EXPLORER } from './circuitApi';
+import { Database, ShieldCheck, Activity, Users, Clock, Hash, Sliders, RefreshCw, Copy, Check, ExternalLink, FileCode } from 'lucide-react';
+import { getExplorerAddressUrl, getExplorerTxUrl, getExplorerContractUrl } from './circuitApi';
 
 interface LedgerDashboardProps {
   totalVerifiedVendors: number;
@@ -10,7 +10,7 @@ interface LedgerDashboardProps {
   lastVerificationTimestamp: number | null;
   lastVerifiedCommitment: string;
   contractAddress: string | null;
-  lastTxHash?: string | null;
+  lastTxHash: string | null;
   walletConnected: boolean;
   onUpdateMinimumScore: (newScore: number) => Promise<void>;
   isUpdatingScore: boolean;
@@ -29,7 +29,7 @@ export const LedgerDashboard: React.FC<LedgerDashboardProps> = ({
   isUpdatingScore,
   onRefreshState,
 }) => {
-  const [newScoreInput, setNewScoreInput] = useState<number>(75);
+  const [newScoreInput, setNewScoreInput] = useState<number>(minimumRequiredScore);
   const [copied, setCopied] = useState<boolean>(false);
   const [copiedContract, setCopiedContract] = useState<boolean>(false);
 
@@ -47,85 +47,85 @@ export const LedgerDashboard: React.FC<LedgerDashboardProps> = ({
     setTimeout(() => setCopiedContract(false), 2000);
   };
 
-  const handleAdminUpdate = (e: React.FormEvent) => {
+  const handleAdminUpdate = async (e: React.FormEvent) => {
     e.preventDefault();
-    onUpdateMinimumScore(newScoreInput);
+    if (newScoreInput <= 0 || newScoreInput > 100) return;
+    await onUpdateMinimumScore(newScoreInput);
   };
 
-  const [mounted, setMounted] = React.useState<boolean>(false);
-
-  React.useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  const formattedDate = lastVerificationTimestamp && lastVerificationTimestamp > 0
+  const formattedDate = lastVerificationTimestamp
     ? new Date(lastVerificationTimestamp * 1000).toLocaleString()
     : 'No Verifications Yet';
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
       
-      {/* Header Bar */}
-      <div className="glass-panel" style={{ padding: '20px 24px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '12px' }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-          <Database size={22} color="var(--accent-cyan)" />
-          <div>
-            <h3 style={{ fontSize: '1.1rem', fontWeight: 700 }}>Public Ledger State</h3>
-            <p style={{ fontSize: '0.8rem', color: 'var(--text-secondary)' }}>
-              Live state queried from Midnight Indexer. Zero sensitive witness data disclosed.
-            </p>
-          </div>
+      {/* Header with Live Sync Button */}
+      <div className="glass-panel" style={{ padding: '20px 24px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '16px' }}>
+        <div>
+          <h3 style={{ fontSize: '1.25rem', fontWeight: 800, display: 'flex', alignItems: 'center', gap: '10px' }}>
+            <Database size={22} color="var(--accent-cyan)" />
+            <span>Public Ledger State</span>
+          </h3>
+          <p style={{ fontSize: '0.85rem', color: 'var(--text-secondary)' }}>
+            Live state queried from Midnight Network Preprod GraphQL Indexer
+          </p>
         </div>
 
-        <button onClick={onRefreshState} className="btn-secondary" style={{ fontSize: '0.8rem', padding: '6px 14px' }}>
+        <button 
+          onClick={onRefreshState} 
+          className="btn-secondary" 
+          style={{ padding: '8px 14px', fontSize: '0.8rem' }}
+          title="Refresh On-Chain State from Indexer"
+        >
           <RefreshCw size={14} />
           <span>Sync State</span>
         </button>
       </div>
 
-      {/* Metric Cards Grid */}
+      {/* Grid of Public Ledger Counters */}
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '16px' }}>
         
-        {/* Total Verified Vendors Card */}
-        <div className="glass-panel glass-card-interactive" style={{ padding: '20px' }}>
+        {/* Metric 1: Total Verified */}
+        <div className="glass-panel" style={{ padding: '20px', position: 'relative', overflow: 'hidden' }}>
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '12px' }}>
-            <span style={{ fontSize: '0.8rem', fontWeight: 600, color: 'var(--text-secondary)' }}>Total Verified Vendors</span>
-            <Shield size={20} color="var(--accent-emerald)" />
+            <span style={{ fontSize: '0.8rem', color: 'var(--text-secondary)', fontWeight: 600 }}>Total Verified Vendors</span>
+            <Users size={18} color="var(--accent-emerald)" />
           </div>
-          <div style={{ fontSize: '2.4rem', fontWeight: 800, color: 'var(--accent-emerald)', fontFamily: 'var(--font-mono)' }}>
+          <div style={{ fontSize: '2.2rem', fontWeight: 900, color: 'var(--accent-emerald)', lineHeight: 1 }}>
             {totalVerifiedVendors}
           </div>
-          <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)', marginTop: '4px', display: 'block' }}>
+          <p style={{ fontSize: '0.75rem', color: 'var(--text-muted)', marginTop: '8px' }}>
             On-chain counter incremented via ZK proof
-          </span>
+          </p>
         </div>
 
-        {/* Minimum Score Requirement Card */}
-        <div className="glass-panel glass-card-interactive" style={{ padding: '20px' }}>
+        {/* Metric 2: Min Score Requirement */}
+        <div className="glass-panel" style={{ padding: '20px', position: 'relative', overflow: 'hidden' }}>
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '12px' }}>
-            <span style={{ fontSize: '0.8rem', fontWeight: 600, color: 'var(--text-secondary)' }}>Min Score Threshold</span>
-            <Sliders size={20} color="var(--accent-cyan)" />
+            <span style={{ fontSize: '0.8rem', color: 'var(--text-secondary)', fontWeight: 600 }}>Min Score Threshold</span>
+            <Sliders size={18} color="var(--accent-cyan)" />
           </div>
-          <div style={{ fontSize: '2.4rem', fontWeight: 800, color: 'var(--accent-cyan)', fontFamily: 'var(--font-mono)' }}>
+          <div style={{ fontSize: '2.2rem', fontWeight: 900, color: 'var(--accent-cyan)', lineHeight: 1 }}>
             {minimumRequiredScore}
           </div>
-          <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)', marginTop: '4px', display: 'block' }}>
+          <p style={{ fontSize: '0.75rem', color: 'var(--text-muted)', marginTop: '8px' }}>
             Active minimum threshold rule
-          </span>
+          </p>
         </div>
 
-        {/* Last Verification Timestamp Card */}
-        <div className="glass-panel glass-card-interactive" style={{ padding: '20px' }}>
+        {/* Metric 3: Last Verification Time */}
+        <div className="glass-panel" style={{ padding: '20px', position: 'relative', overflow: 'hidden', gridColumn: 'span 2' }}>
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '12px' }}>
-            <span style={{ fontSize: '0.8rem', fontWeight: 600, color: 'var(--text-secondary)' }}>Last Verified</span>
-            <Clock size={20} color="var(--accent-purple)" />
+            <span style={{ fontSize: '0.8rem', color: 'var(--text-secondary)', fontWeight: 600 }}>Last Verified</span>
+            <Clock size={18} color="var(--accent-purple)" />
           </div>
-          <div suppressHydrationWarning style={{ fontSize: '0.95rem', fontWeight: 700, color: 'var(--text-primary)', marginTop: '6px' }}>
-            {mounted ? formattedDate : '...'}
+          <div style={{ fontSize: '1.1rem', fontWeight: 700, color: 'var(--text-primary)', lineHeight: 1.2 }}>
+            {formattedDate}
           </div>
-          <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)', marginTop: '8px', display: 'block' }}>
+          <p style={{ fontSize: '0.75rem', color: 'var(--text-muted)', marginTop: '8px' }}>
             Disclosed Unix timestamp
-          </span>
+          </p>
         </div>
 
       </div>
@@ -148,7 +148,7 @@ export const LedgerDashboard: React.FC<LedgerDashboardProps> = ({
                 <span>{copiedContract ? 'Copied' : 'Copy'}</span>
               </button>
               <a 
-                href={`${DEFAULT_PREPROD_EXPLORER}/contract/${contractAddress}`} 
+                href={getExplorerContractUrl(contractAddress)} 
                 target="_blank" 
                 rel="noopener noreferrer" 
                 className="btn-secondary"
@@ -174,7 +174,7 @@ export const LedgerDashboard: React.FC<LedgerDashboardProps> = ({
               <span>Verifiable Preprod Midnight Transaction</span>
             </span>
             <a 
-              href={`${DEFAULT_PREPROD_EXPLORER}/tx/${lastTxHash}`} 
+              href={getExplorerTxUrl(lastTxHash)} 
               target="_blank" 
               rel="noopener noreferrer" 
               className="btn-secondary"

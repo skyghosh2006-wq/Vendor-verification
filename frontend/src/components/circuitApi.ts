@@ -17,10 +17,38 @@ export interface OnChainLedgerState {
   lastVerifiedCommitment: string;
 }
 
-// Midnight Indexer GraphQL endpoint default for Preprod
+// Official Midnight Preprod Explorer & GraphQL Indexer
 export const DEFAULT_PREPROD_INDEXER = 'https://indexer.preprod.midnight.network/api/v4/graphql';
-export const DEFAULT_PREPROD_EXPLORER = 'https://explorer.preprod.midnight.network';
-export const DEFAULT_CONTRACT_ADDRESS = '0x0200f8a91b2c3d4e5f67890abcdef1234567890abcdef1234567890abcdef12';
+export const DEFAULT_PREPROD_EXPLORER = 'https://preprod.midnightexplorer.com';
+export const DEFAULT_CONTRACT_ADDRESS = '0xed3c0b8bbdc6e2405d1b606dfe38ef7d895ad95c9d7ecd69b68b4c2a0fa5e68b';
+
+/**
+ * Generate correct Midnight Preprod Explorer URL for a contract.
+ * Example: https://preprod.midnightexplorer.com/contracts/ed3c0b8bbdc6e2405d1b606dfe38ef7d895ad95c9d7ecd69b68b4c2a0fa5e68b
+ */
+export function getExplorerContractUrl(address: string | null | undefined): string {
+  if (!address) return `${DEFAULT_PREPROD_EXPLORER}/contracts`;
+  const cleanAddr = address.replace(/^0x/, '');
+  return `${DEFAULT_PREPROD_EXPLORER}/contracts/${cleanAddr}`;
+}
+
+/**
+ * Generate correct Midnight Preprod Explorer URL for an account address.
+ */
+export function getExplorerAddressUrl(address: string | null | undefined): string {
+  if (!address) return DEFAULT_PREPROD_EXPLORER;
+  return `${DEFAULT_PREPROD_EXPLORER}/accounts/${address}`;
+}
+
+/**
+ * Generate correct Midnight Preprod Explorer URL for a transaction hash.
+ * Example: https://preprod.midnightexplorer.com/transactions/0xb13f0d232605c0bc819c973a14a152ffaf47a8845dba8f26f4fb845ad38bc0b4
+ */
+export function getExplorerTxUrl(txHash: string | null | undefined): string {
+  if (!txHash) return `${DEFAULT_PREPROD_EXPLORER}/transactions`;
+  const cleanHash = txHash.startsWith('0x') ? txHash : `0x${txHash}`;
+  return `${DEFAULT_PREPROD_EXPLORER}/transactions/${cleanHash}`;
+}
 
 /**
  * Safely extract address from Midnight DApp Connector API (supporting v4 ConnectedAPI, RxJS, Promises, and direct getters).
