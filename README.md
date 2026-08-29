@@ -14,7 +14,7 @@
 <img width="2873" height="1548" alt="image" src="https://github.com/user-attachments/assets/841456ff-a0cb-40be-8740-3a7383def43b" />
 <img width="2863" height="1545" alt="image" src="https://github.com/user-attachments/assets/57871d08-f391-4920-b684-ede44145b4b2" />
 
-
+<img width="1015" height="243" alt="image" src="https://github.com/user-attachments/assets/bf575b14-e1b1-4916-8b5d-992dad59bcdc" />
 
 
 
@@ -135,7 +135,7 @@ Offers interactive options to:
 ```bash
 npm run frontend:dev
 ```
-Open [http://localhost:3000](http://localhost:3000) in your browser. Connect Lace Wallet to execute genuine on-chain ZK transactions.
+Open [http://localhost:3000](http://localhost:3000) in your browser. Connect 1AN Wallet to execute genuine on-chain ZK transactions.
 
 ---
 
@@ -172,8 +172,8 @@ Continuous Integration is configured via `.github/workflows/ci.yml`. On every `p
 4. Runs unit test suite (`npm test`)
 5. Type-checks and builds the Vite production frontend bundle (`npm run frontend:build`)
 
-<img width="1123" height="262" alt="image" src="https://github.com/user-attachments/assets/f9f262af-0f7f-4a56-9d1b-d2b4e1d3bffe" />
-)
+<img width="1015" height="243" alt="image" src="https://github.com/user-attachments/assets/bf575b14-e1b1-4916-8b5d-992dad59bcdc" />
+
 
 ---
 
