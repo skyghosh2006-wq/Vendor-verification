@@ -25,6 +25,7 @@ A full-stack zero-knowledge dApp built on the **Midnight Network** for enterpris
 🆔 **Preprod Contract Address**: 0xed3c0b8bbdc6e2405d1b606dfe38ef7d895ad95c9d7ecd69b68b4c2a0fa5e68b
 
 🌍 **Deployment Tx**:0xb13f0d232605c0bc819c973a14a152ffaf47a8845dba8f26f4fb845ad38bc0b4
+
 🌐 **Midnight Preprod Explorer**: https://preprod.midnightexplorer.com/contracts/ed3c0b8bbdc6e2405d1b606dfe38ef7d895ad95c9d7ecd69b68b4c2a0fa5e68b
 
 
