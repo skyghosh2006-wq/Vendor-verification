@@ -22,12 +22,18 @@ jobs:
           cache-dependency-path: '**/package-lock.json'
 
       - name: Install Compact Compiler CLI
-        continue-on-error: true
         run: |
+          set -e
           mkdir -p ~/.local/bin ~/.compact/bin
-          curl --proto '=https' --tlsv1.2 -LsSf https://github.com/midnightntwrk/compact/releases/latest/download/compact-installer.sh | sh || true
+          curl --proto '=https' --tlsv1.2 -LsSf https://github.com/midnightntwrk/compact/releases/latest/download/compact-installer.sh | sh
           echo "$HOME/.local/bin" >> $GITHUB_PATH
           echo "$HOME/.compact/bin" >> $GITHUB_PATH
+
+      - name: Verify Compact Compiler Installation
+        run: |
+          set -e
+          which compact || (echo "❌ Compact compiler not found in PATH" && exit 1)
+          compact --version
 
       - name: Install Root Dependencies
         run: npm install
@@ -36,11 +42,37 @@ jobs:
         run: npm --prefix frontend install
 
       - name: Compile Compact Smart Contract
-        continue-on-error: true
-        run: npm run compile
+        run: |
+          set -e
+          npm run compile
+
+      - name: Verify Compact Compilation Artifacts
+        run: |
+          set -e
+          if [ ! -f "contracts/managed/vendor-verification/contract/index.js" ]; then
+            echo "❌ Compact compilation failed: contract/index.js missing"
+            exit 1
+          fi
+          if [ ! -f "contracts/managed/vendor-verification/contract/index.d.ts" ]; then
+            echo "❌ Compact compilation failed: contract/index.d.ts missing"
+            exit 1
+          fi
+          if [ ! -f "contracts/managed/vendor-verification/zkir/verifyVendor.zkir" ]; then
+            echo "❌ Compact compilation failed: zkir/verifyVendor.zkir missing"
+            exit 1
+          fi
+          if [ ! -f "contracts/managed/vendor-verification/zkir/setMinimumScore.zkir" ]; then
+            echo "❌ Compact compilation failed: zkir/setMinimumScore.zkir missing"
+            exit 1
+          fi
+          echo "✅ All Compact smart contract compilation artifacts successfully verified."
 
       - name: Execute Contract & Privacy Unit Tests
-        run: npm test
+        run: |
+          set -e
+          npm test
 
       - name: Type-check & Build Frontend App
-        run: npm run frontend:build
+        run: |
+          set -e
+          npm run frontend:build

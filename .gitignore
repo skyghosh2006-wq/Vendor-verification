@@ -7,6 +7,8 @@ yarn-error.log*
 # Build output
 dist/
 build/
+.next/
+frontend/.next/
 public/
 !public/app-preview.png
 !public/navbar-preview.png

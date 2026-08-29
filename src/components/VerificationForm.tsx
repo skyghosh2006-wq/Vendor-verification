@@ -28,7 +28,7 @@ export const VerificationForm: React.FC<VerificationFormProps> = ({
     setErrorMsg(null);
 
     if (!walletConnected) {
-      setErrorMsg('Please connect your Lace Wallet before submitting verification proofs.');
+      setErrorMsg('Please connect your 1AM or Lace Wallet before submitting verification proofs.');
       return;
     }
 

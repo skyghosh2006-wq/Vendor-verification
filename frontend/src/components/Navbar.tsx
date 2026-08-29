@@ -1,7 +1,6 @@
-'use client';
-
 import React from 'react';
-import { ShieldCheck, Wallet, LogOut, Cpu, Network, Info } from 'lucide-react';
+import { ShieldCheck, Wallet, LogOut, Network, Info, ExternalLink, FileCode } from 'lucide-react';
+import { DEFAULT_PREPROD_EXPLORER } from './circuitApi';
 
 interface NavbarProps {
   walletConnected: boolean;
@@ -52,13 +51,13 @@ export const Navbar: React.FC<NavbarProps> = ({
             <p style={{ fontSize: '0.75rem', color: 'var(--accent-cyan)', fontWeight: 600, display: 'flex', alignItems: 'center', gap: '6px' }}>
               <span>Midnight ZK Protocol</span>
               <span style={{ opacity: 0.5 }}>•</span>
-              <span style={{ color: 'var(--text-muted)' }}>Level 3 dApp</span>
+              <span style={{ color: 'var(--text-muted)' }}>DApp Connector</span>
             </p>
           </div>
         </div>
 
         {/* Action Controls & Wallet Status */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '12px', flexWrap: 'wrap' }}>
           
           <button 
             onClick={onOpenPrivacyInfo} 
@@ -70,24 +69,56 @@ export const Navbar: React.FC<NavbarProps> = ({
             <span>Privacy Model</span>
           </button>
 
+          {contractAddress && (
+            <a
+              href={`${DEFAULT_PREPROD_EXPLORER}/contract/${contractAddress}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="badge badge-purple"
+              style={{ display: 'flex', alignItems: 'center', gap: '6px', padding: '6px 12px', textDecoration: 'none' }}
+              title={`View Contract on Midnight Explorer: ${contractAddress}`}
+            >
+              <FileCode size={13} />
+              <span>Contract: {contractAddress.slice(0, 6)}...{contractAddress.slice(-4)}</span>
+              <ExternalLink size={11} />
+            </a>
+          )}
+
           <div className="badge badge-cyan" style={{ display: 'flex', alignItems: 'center', gap: '6px', padding: '6px 12px' }}>
             <Network size={14} />
             <span>Network: <strong>{network.toUpperCase()}</strong></span>
           </div>
 
-          {walletConnected ? (
+          {walletConnected && walletAddress ? (
             <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-              <div className="glass-panel" style={{ padding: '6px 14px', display: 'flex', alignItems: 'center', gap: '8px', background: 'rgba(0, 255, 157, 0.08)', borderColor: 'rgba(0, 255, 157, 0.3)' }}>
+              <a
+                href={`${DEFAULT_PREPROD_EXPLORER}/address/${walletAddress}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="glass-panel"
+                style={{
+                  padding: '6px 14px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '8px',
+                  background: 'rgba(0, 255, 157, 0.08)',
+                  borderColor: 'rgba(0, 255, 157, 0.3)',
+                  textDecoration: 'none',
+                  cursor: 'pointer'
+                }}
+                title="View Account on Midnight Explorer"
+              >
                 <span className="pulse-dot" style={{ color: 'var(--accent-emerald)' }}></span>
                 <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.85rem', color: 'var(--accent-emerald)', fontWeight: 600 }}>
                   {shortAddress}
                 </span>
-              </div>
+                <ExternalLink size={12} color="var(--accent-emerald)" />
+              </a>
               <button 
                 onClick={onDisconnectWallet} 
                 className="btn-secondary" 
                 style={{ padding: '8px 12px', color: 'var(--accent-rose)', borderColor: 'rgba(255, 46, 147, 0.3)' }}
-                title="Disconnect Lace Wallet"
+                title="Disconnect Wallet"
               >
                 <LogOut size={16} />
               </button>
@@ -95,7 +126,7 @@ export const Navbar: React.FC<NavbarProps> = ({
           ) : (
             <button onClick={onConnectWallet} className="btn-primary">
               <Wallet size={18} />
-              <span>Connect Lace Wallet</span>
+              <span>Connect Wallet</span>
             </button>
           )}
 

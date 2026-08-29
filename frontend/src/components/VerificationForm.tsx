@@ -1,7 +1,5 @@
-'use client';
-
 import React, { useState } from 'react';
-import { Lock, EyeOff, CheckCircle2, AlertTriangle, Cpu, ShieldAlert, Sparkles, ArrowRight } from 'lucide-react';
+import { Lock, EyeOff, AlertTriangle, Cpu, Sparkles, ArrowRight } from 'lucide-react';
 
 interface VerificationFormProps {
   walletConnected: boolean;
@@ -30,7 +28,7 @@ export const VerificationForm: React.FC<VerificationFormProps> = ({
     setErrorMsg(null);
 
     if (!walletConnected) {
-      setErrorMsg('Please connect your Lace Wallet before submitting verification proofs.');
+      setErrorMsg('Please connect your 1AM or Lace Wallet before submitting verification proofs.');
       return;
     }
 

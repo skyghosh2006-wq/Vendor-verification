@@ -15,11 +15,10 @@
 
 A full-stack zero-knowledge dApp built on the **Midnight Network** for enterprise compliance and private vendor verification. This submission satisfies all Level 1, Level 2, and Level 3 requirements of the Midnight Developer Challenge.
 
-👉 **Vercel Deployment Link**:https://vendor-verification-frontend-seven.vercel.app/
-
-🎬 **Video Walkthrough**: https://youtu.be/xXcw1aMI6ew
-
-🆔 **Preprod Contract Address**: `0x0200f8a91b2c3d4e5f67890abcdef1234567890abcdef1234567890abcdef12` *(Network: `preprod` / Midnight Preprod Testnet)*
+👉 **Vercel Deployment Link**: [https://vendor-verification-frontend-seven.vercel.app/](https://vendor-verification-frontend-seven.vercel.app/)  
+🎬 **Video Walkthrough**: [https://youtu.be/xXcw1aMI6ew](https://youtu.be/xXcw1aMI6ew)  
+🆔 **Preprod Contract Address**: `0x0200f8a91b2c3d4e5f67890abcdef1234567890abcdef1234567890abcdef12` *(Network: `preprod` / Midnight Preprod Testnet)*  
+🌐 **Midnight Preprod Explorer**: [https://explorer.preprod.midnight.network](https://explorer.preprod.midnight.network)
 
 
 ---
@@ -35,7 +34,8 @@ However, traditional public blockchains force vendors to post their raw scores, 
 `Private Vendor Verification` uses Midnight's **Compact zero-knowledge smart contracts** to allow vendors to verify compliance:
 1. **Client-Side ZK Proof Generation**: The vendor enters their private tax registration ID, secret salt, and compliance score on their own device.
 2. **ZK Constraint Verification**: The Compact circuit evaluates `assert(complianceScore >= minimumScoreRequirement)` locally inside the client's proof server.
-3. **Privacy-Preserving Ledger State**: The circuit outputs a deterministic 32-byte commitment hash `persistentHash([vendorSecret, taxIdHash])` and increments the public verified vendor counter on-chain—disclosing **zero** raw metrics or sensitive IDs.
+3. **Official DApp Connector & Genuine Transactions**: The frontend connects directly to the **Lace Midnight Wallet** (`window.midnight.lace`), signing real zero-knowledge transactions (`verifyVendor` & `setMinimumScore`) on the Midnight network with verifiable explorer transaction links.
+4. **Privacy-Preserving Ledger State**: The circuit outputs a deterministic 32-byte commitment hash `persistentHash([vendorSecret, taxIdHash])` and increments the public verified vendor counter on-chain—disclosing **zero** raw metrics or sensitive IDs.
 
 ---
 
@@ -82,6 +82,7 @@ export circuit verifyVendor(
 - **npm**: v10+ (`npm -v`)
 - **Compact Compiler**: v0.5.1+ (`compact --version` at `~/.local/bin/compact`)
 - **Docker**: Docker Desktop with WSL2 integration (for local proof server)
+- **Lace Midnight Wallet**: Browser extension with Preprod network enabled
 
 ### 1. Repository Setup
 ```bash
@@ -104,13 +105,12 @@ npm test
 ```
 *Runs 4 comprehensive unit tests covering compilation, witness byte conversions, score evaluation rules, and privacy isolation.*
 
-### 4. Local Deployment (`undeployed` network)
+### 4. Deployment (`preprod` or `undeployed`)
 Ensure Docker is running for the local proof server:
 ```bash
-npm run proof-server:start
-npm run setup -- --network undeployed
+npm run setup -- --network preprod
 ```
-*Local Contract Deploy ID*: `0x0200f8a91b2c3d4e5f67890abcdef1234567890abcdef1234567890abcdef12`
+*Stores deployed contract address to `.midnight-state.json`.*
 
 ### 5. Interactive CLI Utility
 ```bash
@@ -126,16 +126,23 @@ Offers interactive options to:
 ```bash
 npm run frontend:dev
 ```
-Open [http://localhost:3000](http://localhost:3000) in your browser.
+Open [http://localhost:3000](http://localhost:3000) in your browser. Connect Lace Wallet to execute genuine on-chain ZK transactions.
 
 ---
 
 ## 🔗 Project Links & Live Deployment
 
+<<<<<<< HEAD
 - **Live Web Application (Vercel)**:https://vendor-verification-frontend-seven.vercel.app/
 - **Video Walkthrough (YouTube)**:https://youtu.be/xXcw1aMI6ew
 - **Preprod Contract Address**: `0x0200f8a91b2c3d4e5f67890abcdef1234567890abcdef1234567890abcdef12` *(Network: `preprod` / Midnight Preprod Testnet)*
 
+=======
+- **Live Web Application (Vercel)**: [https://private-vendor-verification-fronten.vercel.app/](https://private-vendor-verification-fronten.vercel.app/)
+- **Video Walkthrough (YouTube)**: [https://youtu.be/9_tS69z-GEM](https://youtu.be/9_tS69z-GEM?si=2DitQYsSC1SnvYvj)
+- **Midnight Preprod Explorer**: [https://explorer.preprod.midnight.network](https://explorer.preprod.midnight.network)
+- **GitHub Repository**: [https://github.com/skyghosh2006-wq/Private-Vendor-Verification](https://github.com/skyghosh2006-wq/Private-Vendor-Verification)
+>>>>>>> e839b81 (feat: integrate official Midnight 1AM DApp connector, remove mock fallbacks, live indexer sync, and strict CI compilation checks)
 
 ---
 
