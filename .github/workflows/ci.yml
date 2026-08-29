@@ -29,16 +29,15 @@ jobs:
           echo "$HOME/.local/bin" >> $GITHUB_PATH
           echo "$HOME/.compact/bin" >> $GITHUB_PATH
           export PATH="$HOME/.local/bin:$HOME/.compact/bin:$PATH"
-          compact install 0.5.1 || compact install latest || true
-          compact default 0.5.1 || compact default latest || compact set-default 0.5.1 || true
+          compact update
 
       - name: Verify Compact Compiler Installation
         run: |
           set -e
           export PATH="$HOME/.local/bin:$HOME/.compact/bin:$PATH"
           which compact || (echo "❌ Compact compiler not found in PATH" && exit 1)
-          compact --version || true
-          compact list || true
+          compact --version
+          compact compile --version
 
       - name: Install Root Dependencies
         run: npm install
@@ -50,15 +49,7 @@ jobs:
         run: |
           set -e
           export PATH="$HOME/.local/bin:$HOME/.compact/bin:$PATH"
-          # Run compilation using compact or compactc
-          if command -v compact >/dev/null 2>&1; then
-            compact compile contracts/vendor-verification.compact contracts/managed/vendor-verification || \
-            compactc compile contracts/vendor-verification.compact contracts/managed/vendor-verification || \
-            npx --yes @midnight-ntwrk/compactc compile contracts/vendor-verification.compact contracts/managed/vendor-verification || \
-            npm run compile
-          else
-            npm run compile
-          fi
+          npm run compile
 
       - name: Verify Compact Compilation Artifacts
         run: |
