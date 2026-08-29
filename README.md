@@ -9,7 +9,8 @@
 
 [Prepod Wallet Connected]<img width="2873" height="1566" alt="image" src="https://github.com/user-attachments/assets/763d1baf-90c4-46fa-b5e2-dc57e7402372" />
 
-<img width="2070" height="1461" alt="image" src="https://github.com/user-attachments/assets/a05bd368-409b-44de-8a5f-c59fe9fa21af" />
+<img width="2878" height="1555" alt="image" src="https://github.com/user-attachments/assets/38aa80e8-e0ec-4955-916e-a41e943fea3c" />
+
 <img width="2873" height="1548" alt="image" src="https://github.com/user-attachments/assets/841456ff-a0cb-40be-8740-3a7383def43b" />
 <img width="2863" height="1545" alt="image" src="https://github.com/user-attachments/assets/57871d08-f391-4920-b684-ede44145b4b2" />
 
